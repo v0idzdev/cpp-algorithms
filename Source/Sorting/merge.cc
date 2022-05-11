@@ -4,7 +4,8 @@
  * Email  matthewflegg@outlook.com
  * Date   7/5/22
  */
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
 
 typedef unsigned long ulong;
 
@@ -22,7 +23,7 @@ public:
 
     static void Print(std::vector<T> vec, const char delimiter) {
         for (auto x : vec)
-            std::cout << vec << delimiter;
+            std::cout << x << delimiter;
     }    
 };
 
@@ -45,8 +46,8 @@ private:
     }
 
     static void Merge(std::vector<T> &vec, ulong start, ulong midpoint, ulong end) {
-        std::vector<T> one = VectorUtils<int>::Slice(vec, start, midpoint);
-        std::vector<T> two = VectorUtils<int>::Slice(vec, midpoint + 1, end);
+        std::vector<T> one = VectorUtils<T>::Slice(vec, start, midpoint);
+        std::vector<T> two = VectorUtils<T>::Slice(vec, midpoint + 1, end);
 
         ulong i = 0, j = 0;
         ulong k = start;
@@ -67,6 +68,7 @@ private:
 
 int main() {
     std::vector<int> vec(100 + rand() % 1000);
+    VectorUtils<int>::Print(vec, ' ');
 
     for (auto x : vec)
         x = -1000 + rand() % 1000;
